@@ -1,4 +1,5 @@
 require 'yaml'
+ANSIBLE_INVENTORY_DIR = 'ansible/inventories'
 
 Vagrant.require_version ">= 1.5"
 
@@ -33,11 +34,12 @@ Vagrant.configure("2") do |config|
         primary.vm.box = box
     end
 
-    ANSIBLE_INVENTORY_DIR = 'ansible/inventories'
     config.vm.provision "vai" do |ansible|
       ansible.inventory_dir = ANSIBLE_INVENTORY_DIR
       ansible.groups = {
         "local" => [hostname]
       }
     end
+
+    config.vm.provision :shell, run: "always", :path => "mongodb-mount-fix.sh"
 end

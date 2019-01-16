@@ -34,6 +34,16 @@ A local development environment for working on the [fl-maps](https://github.com/
     ./ansible/scripts/local/playbook.sh
     ```
 
+5. Place the `settings.json` file in `workspace/fl-maps`
+
+    ```
+    cp ~/Downloads/settings.json workspace/fl-maps
+    ```
+
+    (You may have to replace `~/Downloads/settings.json` with the path to `settings.json` on your computer)
+
+    Ask a team member on slack about how to get the `settings.json` file.
+
 This initial setup only has to be done once. After running the Ansible playbook successfully, your VM will be ready for development. See the "Running the meteor server" section to start your local dev server.
 
 
@@ -51,11 +61,16 @@ This initial setup only has to be done once. After running the Ansible playbook 
     cd /vagrant/workspace/fl-maps
     ```
 
+3. install npm dependencies
+
+    ```
+    npm install
+    ```
 
 3. Start the server
 
     ```
-    meteor
+    npm run start
     ```
 
 You can now access your dev server at `192.168.10.10:3000`. If you changed the VM IP to something other than the default (by editting `ansible/vars/all.yml`) then use that IP instead.
