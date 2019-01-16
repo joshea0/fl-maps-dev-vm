@@ -1,0 +1,5 @@
+.vagrant
+*.retry
+workspace/
+vagrant_ansible_inventory
+ubuntu*.log

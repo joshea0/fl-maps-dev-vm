@@ -1,0 +1,9 @@
+---
+- name: Install node PPA
+  shell: "curl -sL https://deb.nodesource.com/setup_{{ nodejs_version }}.x | sudo -E bash -"
+
+- name: "Install Node JS v{{ nodejs_version }}"
+  become: yes
+  apt:
+    pkg: nodejs
+    state: present

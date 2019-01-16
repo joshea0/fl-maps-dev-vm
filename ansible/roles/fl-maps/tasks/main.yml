@@ -1,0 +1,11 @@
+---
+- name: Clone the fl-maps repository
+  git:
+    repo: "{{ app.repo }}"
+    dest: "{{ app.working_dir }}"
+    update: no
+
+- name: Install npm dependencies for fl-maps
+  npm:
+    path: "{{ app.working_dir }}"
+    state: present

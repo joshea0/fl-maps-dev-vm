@@ -1,0 +1,24 @@
+---
+server:
+    timezone: America/New_York
+    locale: en_US.UTF-8
+    packages:
+      - git
+      - zsh
+      - curl
+      - build-essential
+      - unzip
+
+# Vagrant specific configuration
+vagrant_local:
+    vm:
+      box: "ubuntu/xenial64"
+      hostname: fl-maps.localdev
+      ip: 192.168.10.10
+      memory: 4096
+
+nodejs_version: 8
+
+app:
+  repo: https://github.com/focallocal/fl-maps.git
+  working_dir: /vagrant/workspace/fl-maps
